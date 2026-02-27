@@ -1,0 +1,435 @@
+.table-container {
+  display: flex;
+  padding: 0 var(--spacing-xl) var(--spacing-xl) var(--spacing-xl);
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+  overflow: hidden;
+}
+
+.table-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  align-self: stretch;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-background-light);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+.table-header-row {
+  background-color: var(--color-gray-100);
+}
+
+.table-header-row th {
+  padding: var(--spacing-lg);
+  text-align: left;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table-header-row th:last-child {
+  text-align: right;
+}
+
+.table-body-row {
+  border-top: 1px solid var(--color-border);
+  transition: var(--transition);
+}
+
+.table-body-row:hover {
+  background-color: #FAFBFC;
+}
+
+.table-body-row td {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  text-align: left;
+  color: var(--color-text-dark);
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+.table-body-row td:last-child {
+  text-align: right;
+}
+
+.cell-timestamp {
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.cell-medicine {
+  padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.medicine-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.medicine-icon {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-background);
+  flex-shrink: 0;
+}
+
+.medicine-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.medicine-name {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-xs);
+}
+
+.medicine-type {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.cell-batch-id {
+  font-family: 'Liberation Mono', monospace;
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.cell-type {
+  color: var(--color-text-dark);
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 2px var(--spacing-md);
+  border-radius: var(--border-radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+}
+
+.type-badge.check-in {
+  background-color: var(--color-success-light);
+  color: var(--color-success-dark);
+}
+
+.type-badge.check-out {
+  background-color: var(--color-info-light);
+  color: var(--color-info-dark);
+}
+
+.cell-quantity {
+  text-align: left;
+  font-weight: 500;
+}
+
+.cell-quantity.positive {
+  color: var(--color-success);
+}
+
+.cell-quantity.negative {
+  color: var(--color-text-dark);
+}
+
+.cell-department {
+  color: var(--color-text-muted);
+}
+
+.cell-pharmacist {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  color: var(--color-text-muted);
+}
+
+.pharmacist-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.pharmacist-avatar {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  padding: 3.5px 0 4.5px 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius-full);
+  background-color: var(--color-gray-200);
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  text-align: center;
+}
+
+.cell-status {
+  text-align: right;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  width: fit-content;
+  margin-left: auto;
+}
+
+.status-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: var(--border-radius-full);
+  flex-shrink: 0;
+}
+
+.status-badge.completed {
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-500);
+}
+
+.status-badge.completed::before {
+  background-color: var(--color-success);
+}
+
+.status-badge.pending {
+  background-color: var(--color-warning-light);
+  color: var(--color-text-dark);
+}
+
+.status-badge.pending::before {
+  background-color: var(--color-warning);
+}
+
+.status-badge.cancelled {
+  background-color: var(--color-error-light);
+  color: var(--color-error);
+}
+
+.status-badge.cancelled::before {
+  background-color: var(--color-error);
+}
+
+.table-footer {
+  display: flex;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-background-light);
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+}
+
+.pagination-info {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-dark);
+}
+
+.pagination-info strong {
+  font-weight: 500;
+  color: var(--color-text-dark);
+}
+
+.pagination-info span {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+}
+
+.pagination-btn {
+  display: flex;
+  padding: var(--spacing-xs) var(--spacing-md);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-background-light);
+  color: var(--color-text-dark);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  min-width: 32px;
+}
+
+.pagination-btn:hover:not(:disabled):not(.active) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.pagination-btn.active {
+  background-color: var(--color-primary);
+  color: var(--color-background-light);
+  border-color: var(--color-primary);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-btn svg {
+  width: 7px;
+  height: 10px;
+  color: currentColor;
+}
+
+.pagination-ellipsis {
+  padding: var(--spacing-xs) var(--spacing-md);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .table-container {
+    padding: 0 var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
+  }
+
+  .transaction-table {
+    font-size: 13px;
+  }
+
+  .table-header-row th,
+  .table-body-row td {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    padding: var(--spacing-lg);
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  .transaction-table {
+    min-width: 100%;
+    font-size: 12px;
+  }
+
+  .table-header-row th,
+  .table-body-row td {
+    padding: var(--spacing-md);
+    font-size: 12px;
+  }
+
+  .medicine-info {
+    gap: var(--spacing-md);
+  }
+
+  .medicine-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .medicine-name {
+    font-size: 12px;
+  }
+
+  .table-footer {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .pagination-info {
+    width: 100%;
+    text-align: center;
+  }
+
+  .pagination-controls {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .table-container {
+    padding: var(--spacing-md);
+  }
+
+  .transaction-table {
+    font-size: 11px;
+  }
+
+  .table-header-row th,
+  .table-body-row td {
+    padding: var(--spacing-sm);
+    font-size: 11px;
+  }
+
+  .medicine-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .medicine-icon svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .medicine-name {
+    font-size: 11px;
+  }
+
+  .medicine-type {
+    font-size: 10px;
+  }
+
+  .pharmacist-avatar {
+    width: 20px;
+    height: 20px;
+    font-size: 9px;
+  }
+
+  .pagination-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    min-width: 28px;
+    font-size: 11px;
+  }
+
+  .pagination-ellipsis {
+    font-size: 11px;
+  }
+}
