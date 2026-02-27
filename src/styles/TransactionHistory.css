@@ -1,0 +1,12 @@
+.transaction-history-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+}
+
+@media (max-width: 768px) {
+  .transaction-history-container {
+    flex-direction: column;
+  }
+}
